@@ -10,11 +10,14 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-white">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="px-4 pt-4 text-right">
-                        <button class="inline-flex items-center px-4 py-2 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"  @click="$page.component = 'CreateCourse';console.log('Button clicked');">
+                        <!-- <button class="inline-flex items-center px-4 py-2 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"  @click="$page.component = 'CreateCourse';console.log('Button clicked');">
                             <i class="fas fa-plus"></i> Add New Course
-                        </button>
-                        <div>
-                        <CreateCourse v-show="showNewCourseModal" @close="showNewCourseModal = false"   @click="$page.component = 'CreateCourse'"/> </div>
+                        </button> -->
+                        <!-- <div> -->
+                            <button class="inline-flex items-center px-4 py-2 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" @click="$page.url('/courses/create')">
+                                <i class="fas fa-plus"></i> Add New Course
+                            </button>
+                        <!-- <CreateCourse v-if="showNewCourseModal" @close="showNewCourseModal = false"  @click="$page.component = 'CreateCourse'"/> </div> -->
                     </div>
                     <div class="container mx-auto px-4 py-8">
                         <table>

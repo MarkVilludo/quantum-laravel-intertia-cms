@@ -28,7 +28,7 @@
   
   const submitNewCourse = async () => {
     // Use Inertia.post to send data to the server-side controller
-    await usePage.post('/learning', newCourseData.value);
+    await usePage.post('/learning-module', newCourseData.value);
   
     // Reset new course data (optional)
     newCourseData.value = { title: '', description: '' };
