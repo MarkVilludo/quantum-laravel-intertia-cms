@@ -9,6 +9,9 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-white">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <button class="add-new-course-button" @click="$page.component = 'CreateCourse'">
+                        <i class="fas fa-plus"></i> Add New Course
+                    </button>
                     <div class="container mx-auto px-4 py-8">
                         <table>
                             <tbody v-for="sy in schoolYear" :key="sy.id">
@@ -40,8 +43,10 @@
     </AuthenticatedLayout>
 </template>
 <script setup>
+    import CreateCourse from '@/Pages/LearningCourse/CreateCourse.vue';
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
     import { Head } from '@inertiajs/vue3';
+    const darkMode = usePage().props.dark;
 
     import { usePage } from '@inertiajs/vue3';
     const props = defineProps({

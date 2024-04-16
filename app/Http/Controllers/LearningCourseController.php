@@ -15,8 +15,12 @@ class LearningCourseController extends Controller
 
     public function index()
     {
-        $learningCourses = LearningCourse::all();
         $data['schoolYear'] = SchoolYear::with('learningCourses')->get();
-        return Inertia::render('LearningModule', $data);
+        return Inertia::render('LearningCourse/LearningModule', $data);
+    }
+
+    public function store()
+    {
+        return request()->all();
     }
 }

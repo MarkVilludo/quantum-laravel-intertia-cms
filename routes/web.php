@@ -34,7 +34,15 @@ Route::get('/dashboard', function () {
 //     return Inertia::render('LearningModule');
 // })->middleware(['auth', 'verified'])->name('learning.modules');
 
-Route::get('/learning-modules', [LearningCourseController::class, 'index'])->middleware(['auth', 'verified'])->name('learning.modules');
+
+Route::resource('learning-modules', LearningCourseController::class)->middleware(['auth', 'verified'])->names([
+    'index' => 'learning.modules',
+    'create' => 'learning.modules.create',
+    'store' => 'learning.modules.store',
+    'edit' => 'learning.modules.edit',
+    'update' => 'learning.modules.update',
+    'destroy' => 'learning.modules.destroy',
+]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
