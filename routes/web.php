@@ -34,14 +34,14 @@ Route::get('/dashboard', function () {
 //     return Inertia::render('LearningModule');
 // })->middleware(['auth', 'verified'])->name('learning.modules');
 
-Route::get('/courses/create', function () {
-    return Inertia::render('LearningCourse/CreateCourse');
-})->name('courses.create');
+// Route::get('/courses/create', function () {
+//     return Inertia::render('LearningCourse/CreateCourse');
+// })->name('courses.create');
 
 
 Route::resource('learning-modules', LearningCourseController::class)->middleware(['auth', 'verified'])->names([
     'index' => 'learning.modules',
-    // 'create' => 'learning.modules.create',
+    'create' => 'learning.modules.create',
     'store' => 'learning.modules.store',
     'edit' => 'learning.modules.edit',
     'update' => 'learning.modules.update',

@@ -18,6 +18,10 @@ class LearningCourseController extends Controller
         $data['schoolYear'] = SchoolYear::with('learningCourses')->get();
         return Inertia::render('LearningCourse/LearningModule', $data);
     }
+    public function create()
+    {
+        return Inertia::render('LearningCourse/CreateCourse');
+    }
 
     public function store()
     {
