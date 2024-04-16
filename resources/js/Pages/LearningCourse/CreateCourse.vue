@@ -20,11 +20,11 @@
   
   <script setup>
     import { usePage } from '@inertiajs/vue3';
-  
-  const newCourseData = ref({
-    title: '',
-    description: '',
-  });
+    import { ref } from 'vue'; // Import ref from Vue
+    const newCourseData = ref({
+        title: '',
+        description: '',
+    });
   
   const submitNewCourse = async () => {
     // Use Inertia.post to send data to the server-side controller
