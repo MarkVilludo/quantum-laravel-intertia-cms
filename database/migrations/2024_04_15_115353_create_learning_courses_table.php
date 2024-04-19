@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('year_id');
-            $table->unsignedBigInteger('level_id');
             $table->string('duration', 64)->nullable();
             $table->timestamps();
         });

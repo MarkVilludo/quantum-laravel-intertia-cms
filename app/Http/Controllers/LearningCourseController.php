@@ -15,16 +15,27 @@ class LearningCourseController extends Controller
 
     public function index()
     {
+        $data['message'] = '';
         $data['schoolYear'] = SchoolYear::with('learningCourses')->get();
-        return Inertia::render('LearningCourse/LearningModule', $data);
+        return Inertia::render('LearningCourse/Index', $data);
     }
     public function create()
     {
-        return Inertia::render('LearningCourse/CreateCourse');
+        return Inertia::render('LearningCourse/Create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        return request()->all();
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string'
+        ]);
+        $learningCourse = new LearningCourse($request->all());
+        $learningCourse->save();
+
+        session()->flash('success', 'Learning course created successfully!');
+        // Redirect back to the create page with a flash message (optional)
+        return redirect()->route('learning.modules');
+        // return redirect()->route('learning.modules');
     }
 }

@@ -48,6 +48,15 @@ Route::resource('learning-modules', LearningCourseController::class)->middleware
     'destroy' => 'learning.modules.destroy',
 ]);
 
+// Route::group(['prefix' => 'learning-modules'], function () {
+//     Route::get('/', [LearningCourseController::class, 'index'])->name('learning-modules.index');
+//     Route::get('/create', [LearningCourseController::class, 'create'])->name('learning-modules.create');
+//     Route::post('/', [LearningCourseController::class, 'store'])->name('learning-modules.store');
+//     Route::get('/{learningModule}/edit', [LearningCourseController::class, 'edit'])->name('learning-modules.edit');
+//     Route::put('/{learningModule}', [LearningCourseController::class, 'update'])->name('learning-modules.update');
+//     Route::delete('/{learningModule}', [LearningCourseController::class, 'destroy'])->name('learning-modules.destroy');
+// })->middleware(['auth', 'verified']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
