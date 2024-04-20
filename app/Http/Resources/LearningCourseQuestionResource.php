@@ -16,6 +16,7 @@ class LearningCourseQuestionResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'difficulty_level_id' => $this->difficulty_level_id,
             'learning_course_id' => $this->learning_course_id,
             'duration' => $this->duration,
             'question_text' => $this->question_text,
