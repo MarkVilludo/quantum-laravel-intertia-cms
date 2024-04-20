@@ -16,9 +16,11 @@ class LearningCourseQuestionSeeder extends Seeder
         //
         // Assuming you have some sample learning_course_id values
         $courseIds = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+        $difficulty = [1, 1, 2, 2, 3, 3, 3, 1, 2, 3];
 
         $questions = [
             [
+                'difficulty_level_id' => $difficulty[0], // Replace with actual course ID
                 'learning_course_id' => $courseIds[0], // Replace with actual course ID
                 'question_text' => 'What is the basic unit of data storage in a computer?',
                 'question_type' => 'multiple_choice',
@@ -29,6 +31,7 @@ class LearningCourseQuestionSeeder extends Seeder
                 'correct_answer' => 'd',
             ],
             [
+                'difficulty_level_id' => $difficulty[1], // Replace with actual course ID
                 'learning_course_id' => $courseIds[1], // Replace with actual course ID
                 'question_text' => 'What does HTML stand for?',
                 'question_type' => 'multiple_choice',
@@ -39,6 +42,7 @@ class LearningCourseQuestionSeeder extends Seeder
                 'correct_answer' => 'a',
             ],
             [
+                'difficulty_level_id' => $difficulty[2], // Replace with actual course ID
                 'learning_course_id' => $courseIds[2], // Replace with actual course ID
                 'question_text' => 'What is the purpose of a semicolon (;) in JavaScript?',
                 'question_type' => 'multiple_choice',
@@ -49,12 +53,14 @@ class LearningCourseQuestionSeeder extends Seeder
                 'correct_answer' => 'c',
             ],
             [
+                'difficulty_level_id' => $difficulty[3], // Replace with actual course ID
                 'learning_course_id' => $courseIds[3], // Replace with actual course ID
                 'question_text' => 'Explain the concept of a relational database.',
                 'question_type' => 'open_ended', // No answer options for open ended questions
                 'correct_answer' => 'a',
             ],
             [
+                'difficulty_level_id' => $difficulty[4], // Replace with actual course ID
                 'learning_course_id' => $courseIds[4], // Replace with actual course ID
                 'question_text' => 'What are the four Ps of marketing?',
                 'question_type' => 'multiple_choice',
@@ -65,12 +71,14 @@ class LearningCourseQuestionSeeder extends Seeder
                 'correct_answer' => 'a',
             ],
             [
+                'difficulty_level_id' => $difficulty[5], // Replace with actual course ID
                 'learning_course_id' => $courseIds[5], // Replace with actual course ID
                 'question_text' => 'What is the difference between SEO and SEM?',
                 'question_type' => 'open_ended',
                 'correct_answer' => "b",
             ],
             [
+                'difficulty_level_id' => $difficulty[6], // Replace with actual course ID
                 'learning_course_id' => $courseIds[6], // Replace with actual course ID
                 'question_text' => 'Identify the basic components of a graphic design software.',
                 'question_type' => 'multiple_choice',
@@ -81,6 +89,7 @@ class LearningCourseQuestionSeeder extends Seeder
                 'correct_answer' => 'd',
             ],
             [
+                'difficulty_level_id' => $difficulty[7], // Replace with actual course ID
                 'learning_course_id' => $courseIds[7], // Replace with actual course ID
                 'question_text' => 'What is the role of color theory in design?',
                 'question_type' => 'open_ended',

@@ -21,6 +21,7 @@ return new class extends Migration
         Schema::create('learning_course_questions', function (Blueprint $table) {
             $table->id();
             $table->integer('learning_course_id');
+            $table->integer('difficulty_level_id');
             $table->integer('duration')->nullable();
             $table->text('question_text');
             $table->string('question_type')->nullable();
