@@ -33,16 +33,17 @@
                           {{ learning_course.description }}
                         </p>
                     </td>
-                    <td class="grid grid-cols-1 gap-2 text-center">
-                      <div class="sm:flex flex px-4">
-                        <button @click="handleDeleteConfirmation(learning_course.id)" class="sm:flex-auto items-center px-4 py-1 my-4 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    <td class="md:grid grid-cols-1 gap-2 text-center flex flex-row px-1 py-1 items-center">
+                      <div class="flex gap-1 flex-col md:flex-row items-center justify-center">
+                        <button @click="handleDeleteConfirmation(learning_course.id)" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                           <i class="fas fa-trash-alt mr-1"></i>
                           Delete
                         </button>
-                        <Link :href="`learning-modules/${learning_course.id}/edit`" class="sm:flex-auto items-center px-4 py-1 my-4 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <Link :href="`learning-modules/${learning_course.id}/edit`" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                           <i class="fas fa-edit mr-1"></i>
                           Edit
                         </Link>
+                        
                       </div>
                     </td>
                   </tr>

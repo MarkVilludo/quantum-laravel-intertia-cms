@@ -3,7 +3,14 @@
       <template #header>
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Create Learning Module</h2>
       </template>
-      <div class="py-12 mx-2 py-2">
+      <template>
+        <div>
+          <div v-if="flash" class="alert alert-success" role="alert">
+            {{ flash }}
+          </div>
+        </div>
+      </template>
+            <div class="py-12 mx-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 text-white dark:bg-gray-800 py-8 dark:text-black">
           <form @submit.prevent="submit">
             <div class="mb-3">
@@ -42,6 +49,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  flash: String,
 });
 
 const form = useForm({
