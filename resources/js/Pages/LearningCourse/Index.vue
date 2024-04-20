@@ -57,7 +57,7 @@
   
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { usePage, useForm } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
@@ -66,9 +66,6 @@ const props = defineProps({
 });
 const form = useForm({});
 
-const deleteLearningCourse = (id) => {
-    form.delete(`learning-modules/${id}`);
-};
 const handleDeleteConfirmation = (id) => {
   if (confirm('Are you sure you want to delete this learning course?')) {
     form.delete(`learning-modules/${id}`);
