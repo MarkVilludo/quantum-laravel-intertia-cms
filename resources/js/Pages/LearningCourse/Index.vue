@@ -32,7 +32,7 @@
                     </td>
                     <td class="grid grid-cols-1 gap-2 text-center">
                       <div class="sm:flex flex px-4">
-                        <button @click="deleteLearningCourse(learning_course.id)" class="sm:flex-auto items-center px-4 py-1 my-4 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        <button @click="handleDeleteConfirmation(learning_course.id)" class="sm:flex-auto items-center px-4 py-1 my-4 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                           <i class="fas fa-trash-alt mr-1"></i>
                           Delete
                         </button>
@@ -66,11 +66,11 @@ const form = useForm({});
 const deleteLearningCourse = (id) => {
     form.delete(`learning-modules/${id}`);
 };
-// const handleDelete = async (id) => {
-//   if (confirm('Are you sure you want to delete this learning course?')) {
-//     await form.delete(`learning-modules/${id}`);
-//     // Update your data here if needed (e.g., filter deleted course)
-//   }
-// };
+const handleDeleteConfirmation = (id) => {
+  if (confirm('Are you sure you want to delete this learning course?')) {
+    form.delete(`learning-modules/${id}`);
+    // Update your data here if needed (e.g., filter deleted course)
+  }
+};
 </script>
   
