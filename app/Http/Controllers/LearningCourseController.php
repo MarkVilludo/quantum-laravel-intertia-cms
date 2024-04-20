@@ -56,6 +56,9 @@ class LearningCourseController extends Controller
     {
         $learningCourse = LearningCourse::find($id);
         $learningCourse->delete();
+
+        session()->flash('success', 'Learning course created successfully!');
+        // Redirect back to the create page with a flash message (optional)
         return redirect()->route('learning.modules');
     }
 }

@@ -8,12 +8,15 @@
           <div class="py-4 text-right">
             <Link class="border-b inline-flex items-center px-6 py-4 bg-gray-800 text-white font-bold rounded-lg shadow hover:bg-gray-200 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="learning-modules/create">Add New Learning Module</Link>
           </div>
-          <template>
-            {{  message }}
-          <div v-if="message" class="alert alert-success">
-            {{ message }}
+          <div class="py-12" v-if="message">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <template >
+                <div class="alert alert-success">
+                  {{ message }}
+                </div>
+              </template>
+            </div>
           </div>
-        </template>
           <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
             <div class="container mx-auto px-4 py-8">
               <table class="border-separate border border-slate-500">
