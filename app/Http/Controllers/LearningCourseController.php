@@ -38,4 +38,24 @@ class LearningCourseController extends Controller
         return redirect()->route('learning.modules');
         // return redirect()->route('learning.modules');
     }
+
+    public function edit($id)
+    {
+        $learningCourse = LearningCourse::find($id);
+        return Inertia::render('LearningCourse/Edit', ['learning_course' => $learningCourse, 'isUpdating' => true]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $learningCourse = LearningCourse::find($id);
+        $learningCourse->update($request->all());
+        return redirect()->route('learning.modules');
+    }
+
+    public function destroy($id)
+    {
+        $learningCourse = LearningCourse::find($id);
+        $learningCourse->delete();
+        return redirect()->route('learning.modules');
+    }
 }
