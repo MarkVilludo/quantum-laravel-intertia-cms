@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LearningCourseQuestionController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,20 @@ use App\Http\Controllers\LearningCourseQuestionController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('v1/register', [AuthController::class, 'register']);
+
+Route::post('v1/login', [AuthController::class, 'login']);
+Route::get('v1/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 Route::get('/v1/questions', [LearningCourseQuestionController::class, 'index']);
+
+
+
+
+// // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// //     return $request->user();
+// });
+// Route::post('/register', [AuthController::class, 'register']);
+
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::get('/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');

@@ -4,6 +4,7 @@ use App\Http\Controllers\{ProfileController, DashboardController};
 use App\Http\Controllers\LearningCourseController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------

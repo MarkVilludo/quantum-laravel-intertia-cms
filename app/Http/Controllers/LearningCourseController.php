@@ -34,9 +34,8 @@ class LearningCourseController extends Controller
         $learningCourse->save();
 
         session()->flash('success', 'Learning course created successfully!');
-        return Inertia::render('LearningCourse/Create', [
-            'flash' => session('success'),
-        ]);
+        // Redirect back to the create page with a flash message (optional)
+        return redirect()->route('learning.modules');
     }
 
     public function edit($id)

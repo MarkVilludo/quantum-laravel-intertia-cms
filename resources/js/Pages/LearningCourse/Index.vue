@@ -17,7 +17,7 @@
               </template>
             </div>
           </div>
-          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+          <div class="dark:bg-white text-black dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
             <div class="container mx-auto px-4 py-8">
               <table class="border-separate border border-slate-500">
                 <tbody v-for="sy in schoolYear" :key="sy.id">
