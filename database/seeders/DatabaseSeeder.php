@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             StudentQuestionAnswerSeeder::class,
             LearningCourseQuestionSeeder::class,
             UserSeeder::class,
-            UserLearningProgress::class
+            UserLearningProgress::class,
+            CourseCategorySeeder::class,
+            CourseCategoryContentSeeder::class
         ]);
     }
 }

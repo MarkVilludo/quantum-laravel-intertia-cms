@@ -135,6 +135,12 @@ class CourseSeeder extends Seeder
                 'duration' => '12 weeks',
                 'year_id' => 4, // Replace with the actual category ID for Security
             ],
+            [
+                'title' => 'Node.JS Tutorial',
+                'description' => 'Lorem Ipsum Donor Lorem Ipsum Donor Lorem Ipsum Donor Lorem Ipsum Donor',
+                'duration' => '12 weeks',
+                'year_id' => 4, // Replace with the actual category ID for Security
+            ],
         ];
 
         foreach ($courses as $learningCourse) {

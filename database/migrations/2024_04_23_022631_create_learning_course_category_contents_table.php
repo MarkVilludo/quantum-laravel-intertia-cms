@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('learning_course_categories', function (Blueprint $table) {
+        Schema::create('learning_course_category_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 64);
-            $table->integer('course_id');
-            $table->text('description')->nullable();
+            $table->integer('category_id');
+            $table->integer('learning_course_id');
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('learning_course_categories');
+        Schema::dropIfExists('learning_course_category_contents');
     }
 };

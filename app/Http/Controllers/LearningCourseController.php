@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{LearningCourse, SchoolYear};
+use App\Http\Resources\CourseResource;
 use Inertia\Inertia;
 
 class LearningCourseController extends Controller
@@ -60,4 +61,15 @@ class LearningCourseController extends Controller
         // Redirect back to the create page with a flash message (optional)
         return redirect()->route('learning.modules');
     }
+
+    public function show($id)
+    {
+        $courseDetails = $this->learningCourse->where('id', $id)
+                                      ->with('categories.content')
+                                      ->first();
+
+        $data['course'] = new CourseResource($courseDetails);
+        return response()->json($data, 200);
+    }
+
 }

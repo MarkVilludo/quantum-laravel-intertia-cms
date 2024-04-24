@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LearningCourseQuestionController;
+use App\Http\Controllers\{LearningCourseQuestionController, LearningCourseController};
 use App\Http\Controllers\AuthController;
 
 /*
@@ -19,20 +19,15 @@ use App\Http\Controllers\AuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('v1/register', [AuthController::class, 'register']);
 
-Route::post('v1/login', [AuthController::class, 'login']);
-Route::get('v1/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
+// Group routes with prefix "v1/api"
+Route::prefix('v1')->group(function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::get('profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
+    Route::get('questions', [LearningCourseQuestionController::class, 'index']);
 
-Route::get('/v1/questions', [LearningCourseQuestionController::class, 'index']);
+    Route::get('courses/{id}', [LearningCourseController::class, 'show']);
+});
 
-
-
-
-// // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-// //     return $request->user();
-// });
-// Route::post('/register', [AuthController::class, 'register']);
-
-// Route::post('/login', [AuthController::class, 'login']);
 // Route::get('/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
