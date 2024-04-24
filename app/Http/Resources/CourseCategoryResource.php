@@ -19,7 +19,7 @@ class CourseCategoryResource extends JsonResource
             "name" => $this->name,
             "course_id" => $this->course_id,
             "description" => $this->description,
-            "content" => new CategoryResource($this->content)
+            "content" => $this->content?->content
         ];
     }
 }

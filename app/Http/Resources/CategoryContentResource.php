@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryResource extends JsonResource
+class CategoryContentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,7 +19,7 @@ class CategoryResource extends JsonResource
             "id" => $this->id, 
             "category_id" => $this->category_id, 
             "learning_course_id" => $this->learning_course_id, 
-            "content" => $this->content, 
+            "text" => $this->content, 
         ];
     }
 }
