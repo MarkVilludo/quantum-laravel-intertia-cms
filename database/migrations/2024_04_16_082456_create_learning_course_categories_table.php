@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('learning_course_categories', function (Blueprint $table) {
             $table->id();
+            $table->integer('step');
             $table->string('name', 64);
             $table->integer('course_id');
             $table->text('description')->nullable();

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\UserProfileResource;
 
 class AuthController extends Controller
 {
@@ -42,6 +43,6 @@ class AuthController extends Controller
 
     public function me(Request $request)
     {
-        return $request->user();
+        return new UserProfileResource($request->user());
     }
 }

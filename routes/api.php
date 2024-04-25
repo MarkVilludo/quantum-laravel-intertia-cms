@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{LearningCourseQuestionController, LearningCourseController};
+use App\Http\Controllers\{LearningCourseCategoryContentController, CourseCategoryActivityController};
+use App\Http\Controllers\{CourseCategoryController};
+
 use App\Http\Controllers\AuthController;
 
 /*
@@ -27,7 +30,15 @@ Route::prefix('v1')->group(function () {
     Route::get('profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
     Route::get('questions', [LearningCourseQuestionController::class, 'index']);
 
+    Route::get('courses', [LearningCourseController::class, 'list']);
     Route::get('courses/{id}', [LearningCourseController::class, 'show']);
+    Route::prefix('courses/{id}/categories/{catId}')->group(function () {
+        Route::get('/', [LearningCourseCategoryContentController::class, 'categoryDetails']);
+        //category activity crud
+        Route::post('activities', [CourseCategoryActivityController::class, 'store']);
+    });
+
+    Route::get('categories', [CourseCategoryController::class, 'index']);
 });
 
 // Route::get('/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');

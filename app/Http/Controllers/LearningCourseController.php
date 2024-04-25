@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{LearningCourse, SchoolYear};
-use App\Http\Resources\CourseResource;
+use App\Http\Resources\CategoryListResource;
 use Inertia\Inertia;
 
 class LearningCourseController extends Controller
@@ -65,10 +65,19 @@ class LearningCourseController extends Controller
     public function show($id)
     {
         $courseDetails = $this->learningCourse->where('id', $id)
-                                      ->with('categories.content')
+                                      ->with('categories')
                                       ->first();
 
-        $data['course'] = new CourseResource($courseDetails);
+        $data['course'] = new CategoryListResource($courseDetails);
+        return response()->json($data, 200);
+    }
+
+    public function list()
+    {
+        $courses = $this->learningCourse->where('year_id', request('school_year'))
+                                        ->get();
+
+        $data['courses'] = CategoryListResource::collection($courses);
         return response()->json($data, 200);
     }
 
