@@ -28,7 +28,13 @@ Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
     Route::get('profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
-    Route::get('questions', [LearningCourseQuestionController::class, 'index']);
+
+    Route::prefix('questions')->group(function () {
+        Route::get('/', [LearningCourseQuestionController::class, 'index']);
+        Route::post('/', [LearningCourseQuestionController::class, 'store']);
+        Route::post('/{id}', [LearningCourseQuestionController::class, 'update']);
+        Route::delete('/{id}', [LearningCourseQuestionController::class, 'destroy']);
+    });
 
     Route::get('courses', [LearningCourseController::class, 'list']);
     Route::get('courses/{id}', [LearningCourseController::class, 'show']);
