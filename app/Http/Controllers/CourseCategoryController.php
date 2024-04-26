@@ -17,6 +17,7 @@ class CourseCategoryController extends Controller
     public function index()
     {
         $categories = $this->category->where('course_id', request('course_id'))
+                                        ->orderBy('step', 'asc')
                                         ->get();
 
         $data['data'] = CategoryIndexResource::collection($categories);

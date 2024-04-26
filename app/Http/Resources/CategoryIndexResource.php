@@ -15,7 +15,7 @@ class CategoryIndexResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->id,
+            "learning_course_id" => $this->id,
             "name" => $this->name,
             "step" => $this->step
         ];
