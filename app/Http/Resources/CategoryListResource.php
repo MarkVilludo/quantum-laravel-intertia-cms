@@ -15,13 +15,13 @@ class CategoryListResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->id,
+            "lesson_id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
-            "category_id" => $this->category_id,
+            // "category_id" => $this->category_id,
             "year_id" => $this->year_id,
             "duration" => $this->duration,
-            "categories" => $this->whenLoaded('categories', function () {
+            "modules" => $this->whenLoaded('categories', function () {
                 return CourseCategoryResource::collection($this->categories);
             })
         ];

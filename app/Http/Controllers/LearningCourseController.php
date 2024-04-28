@@ -68,7 +68,7 @@ class LearningCourseController extends Controller
                                       ->with('categories')
                                       ->first();
 
-        $data['course'] = new CategoryListResource($courseDetails);
+        $data['lesson'] = new CategoryListResource($courseDetails);
         return response()->json($data, 200);
     }
 
@@ -77,7 +77,7 @@ class LearningCourseController extends Controller
         $courses = $this->learningCourse->where('year_id', request('school_year'))
                                         ->get();
 
-        $data['courses'] = CategoryListResource::collection($courses);
+        $data['lessons'] = CategoryListResource::collection($courses);
         return response()->json($data, 200);
     }
 

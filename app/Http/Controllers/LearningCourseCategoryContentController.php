@@ -17,9 +17,9 @@ class LearningCourseCategoryContentController extends Controller
 
     public function categoryDetails($courseId, $categoryId)
     {
-        $category = $this->category->where('course_id', $courseId)
+        return $category = $this->category->where('course_id', $courseId)
                                    ->where('id', $categoryId)
-                                   ->with('content')
+                                   ->with('content', 'activities')
                                    ->first();
                                    
         $data['data'] = new CourseCategoryResource($category);

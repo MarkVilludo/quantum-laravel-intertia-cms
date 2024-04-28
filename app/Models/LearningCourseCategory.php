@@ -13,4 +13,9 @@ class LearningCourseCategory extends Model
     {
         return $this->belongsTo(LearningCourseCategoryContent::class, 'id', 'category_id');
     }
+
+    public function activities()
+    {
+        return $this->hasMany(CourseCategoryActivity::class, 'category_id', 'id');
+    }
 }
