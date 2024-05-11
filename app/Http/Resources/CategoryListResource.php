@@ -18,7 +18,8 @@ class CategoryListResource extends JsonResource
             "lesson_id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
-            // "category_id" => $this->category_id,
+            "content" => $this->content,
+            "category_id" => $this->category_id,
             "year_id" => $this->year_id,
             "duration" => $this->duration,
             "modules" => $this->whenLoaded('categories', function () {

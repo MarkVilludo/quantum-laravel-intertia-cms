@@ -36,20 +36,26 @@ class LearningCourseController extends Controller
 
         session()->flash('success', 'Learning course created successfully!');
         // Redirect back to the create page with a flash message (optional)
-        return redirect()->route('learning.modules');
+        return redirect()->route('learning.courses');
     }
 
     public function edit($id)
     {
-        $learningCourse = LearningCourse::find($id);
-        return Inertia::render('LearningCourse/Edit', ['learning_course' => $learningCourse, 'isUpdating' => true]);
+        $learningCourse = LearningCourse::where('id', $id)->with('modules')->first();
+        return Inertia::render('LearningCourse/Edit', 
+            [
+                'learning_course' => $learningCourse,
+                'modules' => $learningCourse->modules,
+                'isUpdating' => true
+            ]
+        );
     }
 
     public function update(Request $request, $id)
     {
         $learningCourse = LearningCourse::find($id);
         $learningCourse->update($request->all());
-        return redirect()->route('learning.modules');
+        return redirect()->route('learning.courses');
     }
 
     public function destroy($id)
@@ -59,13 +65,13 @@ class LearningCourseController extends Controller
 
         session()->flash('success', 'Learning course created successfully!');
         // Redirect back to the create page with a flash message (optional)
-        return redirect()->route('learning.modules');
+        return redirect()->route('learning.courses');
     }
 
     public function show($id)
     {
         $courseDetails = $this->learningCourse->where('id', $id)
-                                      ->with('categories')
+                                      ->with('modules')
                                       ->first();
 
         $data['lesson'] = new CategoryListResource($courseDetails);

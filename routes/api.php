@@ -38,6 +38,7 @@ Route::prefix('v1')->group(function () {
 
     Route::get('courses', [LearningCourseController::class, 'list']);
     Route::get('courses/{id}', [LearningCourseController::class, 'show']);
+    Route::delete('courses/{id}', [LearningCourseController::class, 'show']);
     Route::prefix('courses/{id}/lessons/{lessonId}')->group(function () {
         Route::get('/', [LearningCourseCategoryContentController::class, 'categoryDetails']);
         //category activity crud

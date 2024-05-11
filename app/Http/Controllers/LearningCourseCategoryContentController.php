@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LearningCourseCategory;
-use App\Models\LearningCourseCategoryContent;
+use App\Models\LearningCourseModule;
 use App\Http\Resources\CourseCategoryResource;
 
 class LearningCourseCategoryContentController extends Controller
 {
     //
-    public function __construct(LearningCourseCategory $category, LearningCourseCategory $categoryContent) {
+    public function __construct(LearningCourseModule $category, LearningCourseModule $categoryContent) {
         $this->category = $category;
         $this->categoryContent = $categoryContent;
     }
@@ -19,7 +18,7 @@ class LearningCourseCategoryContentController extends Controller
     {
         return $category = $this->category->where('course_id', $courseId)
                                    ->where('id', $categoryId)
-                                   ->with('content', 'activities')
+                                   ->with('activities')
                                    ->first();
                                    
         $data['data'] = new CourseCategoryResource($category);

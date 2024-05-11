@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             UserLearningProgress::class,
             CourseCategorySeeder::class,
-            CourseCategoryContentSeeder::class
         ]);
     }
 }

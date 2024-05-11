@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\{ProfileController, DashboardController};
-use App\Http\Controllers\LearningCourseController;
+use App\Http\Controllers\{LearningCourseController, CourseCategoryController};
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/learning-modules', function () {
+// Route::get('/learning-courses', function () {
 //     return Inertia::render('LearningModule');
 // })->middleware(['auth', 'verified'])->name('learning.modules');
 
@@ -41,23 +41,25 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 // })->name('courses.create');
 
 
-Route::resource('learning-modules', LearningCourseController::class)->middleware(['auth', 'verified'])->names([
-    'index' => 'learning.modules',
-    'create' => 'learning.modules.create',
-    'store' => 'learning.modules.store',
-    'edit' => 'learning.modules.edit',
-    'update' => 'learning.modules.update',
-    'destroy' => 'learning.modules.destroy',
+Route::resource('learning-courses', LearningCourseController::class)->middleware(['auth', 'verified'])->names([
+    'index' => 'learning.courses',
+    'create' => 'learning.courses.create',
+    'store' => 'learning.courses.store',
+    'edit' => 'learning.courses.edit',
+    'update' => 'learning.courses.update',
+    'destroy' => 'learning.courses.destroy',
 ]);
 
-// Route::group(['prefix' => 'learning-modules'], function () {
-//     Route::get('/', [LearningCourseController::class, 'index'])->name('learning-modules.index');
-//     Route::get('/create', [LearningCourseController::class, 'create'])->name('learning-modules.create');
-//     Route::post('/', [LearningCourseController::class, 'store'])->name('learning-modules.store');
-//     Route::get('/{learningModule}/edit', [LearningCourseController::class, 'edit'])->name('learning-modules.edit');
-//     Route::put('/{learningModule}', [LearningCourseController::class, 'update'])->name('learning-modules.update');
-//     Route::delete('/{learningModule}', [LearningCourseController::class, 'destroy'])->name('learning-modules.destroy');
-// })->middleware(['auth', 'verified']);
+Route::group(['prefix' => 'learning-modules'], function () {
+    Route::get('/', [CourseCategoryController::class, 'index'])->name('learning-modules.index');
+    // Route::get('{courseId}/create', [CourseCategoryController::class, 'create'])->name('learning-modules.create');
+    Route::post('/', [CourseCategoryController::class, 'store'])->name('learning-modules.store');
+    Route::get('/{moduleId}/edit', [CourseCategoryController::class, 'edit'])->name('learning-modules.edit');
+    Route::put('/{moduleId}', [CourseCategoryController::class, 'update'])->name('learning-modules.update');
+})->middleware(['auth', 'verified']);
+Route::get('learning-courses/{courseId}/modules/create', [CourseCategoryController::class, 'create'])->name('learning-modules.create');
+Route::delete('learning-courses/{courseId}/learning-modules/{moduleId}', [CourseCategoryController::class, 'destroy'])->name('learning-modules.destroy');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

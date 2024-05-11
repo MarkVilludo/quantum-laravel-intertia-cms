@@ -15,8 +15,8 @@ class LearningCourse extends Model
         'description'
     ];
 
-    public function categories()
+    public function modules()
     {
-        return $this->hasMany(LearningCourseCategory::class, 'course_id', 'id');
+        return $this->hasMany(LearningCourseModule::class, 'course_id', 'id');
     }
 }
