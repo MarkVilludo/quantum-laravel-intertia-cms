@@ -1,6 +1,6 @@
 <template>
     <div>
-      <ckeditor v-model="editorData" :editor="editor" :config="editorConfig" @update:editorData="handleEditorUpdate" />
+      <ckeditor id="wysywyg" v-model="editorData" :editor="editor" :config="editorConfig" @update:editorData="handleEditorUpdate" />
     </div>
   </template>
   
@@ -13,9 +13,6 @@
   
   // Import your custom configuration (optional)
 //   import editorConfig from './ckeditor-config.js';
-const metaInfo = useMeta();
-const editorVersion = metaInfo.meta.ckeditorVersion;
-
   const props = defineProps({
     editor: {
       type: Object,
@@ -28,6 +25,7 @@ const editorVersion = metaInfo.meta.ckeditorVersion;
   });
   
   const editorData = ref(''); // Reactive data to store the WYSIWYG content
+  const ClassicEditor = await ClassicEditor.create(document.querySelector('#wysywyg')); // Assuming you have an element for the editor
   
   const handleEditorUpdate = (updatedValue) => {
     editorData.value = updatedValue;
