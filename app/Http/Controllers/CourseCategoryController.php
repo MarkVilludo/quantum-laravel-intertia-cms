@@ -27,7 +27,10 @@ class CourseCategoryController extends Controller
 
     public function create($id = null)
     {
-        return Inertia::render('CourseModule/Create');
+        // Assuming you have access to the CKEDITOR_VERSION
+        return Inertia::render('CourseModule/Create', [
+            'editorVersion' => CKEDITOR_VERSION,
+        ]);
     }
 
     public function edit($id)

@@ -29,6 +29,13 @@
                 <label for="step" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Step</label>
                 <input type="text" id="step" v-model="form.step" class="form-control block w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
               </div>
+              <div class="mb-3">
+                <template>
+                <div>
+                  <h1>WYSIWYG Editor</h1>
+                  <EditorComponent :editor="{ editor: ClassicEditor }" /> </div>
+              </template>
+              </div>
               <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
             </form>
           </div>
@@ -38,7 +45,15 @@
   <script setup>
   import { useForm } from "@inertiajs/vue3";
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+  import { ref, watch } from 'vue';
   
+  //for wysysywg
+  // Import CKEditor components (adjust paths if needed)
+  import EditorComponent from '../../Components/EditorComponent.vue'; // Import the component
+
+  const editorData = ref(''); // Reactive data to store the WYSIWYG content
+
+  //wysywyg
   const props = defineProps({
     learning_module: {
       type: Object,
@@ -48,7 +63,7 @@
       type: Boolean,
       default: false,
     },
-    flash: String,
+    flash: String
   });
   
   const form = useForm({
