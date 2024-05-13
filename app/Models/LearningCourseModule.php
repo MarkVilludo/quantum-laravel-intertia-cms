@@ -9,6 +9,13 @@ class LearningCourseModule extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'content',
+        'step'
+    ];
+
     public function activities()
     {
         return $this->hasMany(CourseCategoryActivity::class, 'category_id', 'id');

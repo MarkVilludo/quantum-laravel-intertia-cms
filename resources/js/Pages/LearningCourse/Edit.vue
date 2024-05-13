@@ -66,15 +66,17 @@
                             <td class="px-6 py-4">
                               {{ module.step }}
                             </td>
-                            <td class="px-6 py-4 text-right">
-                              <button @click="handleDeleteConfirmation(module.id)" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                <i class="fas fa-trash-alt mr-1"></i>
+                            <td class="gap">
+                              <Link :href="`learning-modules/${module.id}/edit`">
+                                <i class="fas fa-edit"></i>
+                                <button  class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                  Edit
+                                </button>
+                              </Link>
+                              <button @click="handleDeleteConfirmation(module.id)" class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                <i class="fas fa-trash-alt"></i>
                                 Delete
                               </button>
-                              <Link :href="`learning-modules/${module.id}/edit`" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                <i class="fas fa-edit mr-1"></i>
-                                Edit
-                              </Link>
                             </td>
                         </tr>
                     </tbody>

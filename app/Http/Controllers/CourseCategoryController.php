@@ -27,7 +27,31 @@ class CourseCategoryController extends Controller
 
     public function create($id = null)
     {
-        return Inertia::render('CourseModule/Create');
+        return Inertia::render('CourseModule/Create',
+        [
+            'course_id' => $id
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'content' => 'required',
+            'step' => 'required',
+        ]);
+        // return 'test';
+
+        $category = new LearningCourseModule($request->all());
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->content = $request->content;
+        $category->step = $request->step;
+        $category->course_id = $request->course_id;
+        $category->save();
+
+        return redirect()->route('learning.courses');
     }
 
     public function edit($id)
