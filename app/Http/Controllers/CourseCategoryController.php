@@ -54,12 +54,13 @@ class CourseCategoryController extends Controller
         return redirect()->route('learning.courses');
     }
 
-    public function edit($id)
+    public function edit($moduleId)
     {
-        $learningModule = LearningCourseModule::where('id', $id)->first();
-        return Inertia::render('LearningModule/Edit', 
+        // return 'test';
+        $learningModule = LearningCourseModule::where('id', $moduleId)->first();
+        return Inertia::render('CourseModule/Edit', 
             [
-                'learning_course' => $learningModule,
+                'module' => $learningModule,
                 'isUpdating' => true
             ]
         );

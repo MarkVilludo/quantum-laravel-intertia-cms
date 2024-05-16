@@ -56,7 +56,7 @@ defineProps({
                 </h1>
                 <div class="text-gray-700 text-center space-y-2">
                     <p>This Content Management System is designed to help you manage your online learning courses.</p>
-                    <p>From creating and editing course content to enrolling students, it provides everything you need to deliver engaging and effective learning experiences.</p>
+                    <p>From creating and editing course content, it provides everything you need to deliver engaging and effective learning experiences.</p>
                 </div>
                
             </div>
@@ -65,7 +65,7 @@ defineProps({
             <div class="text-center text-sm sm:text-start">&nbsp;</div>
 
                 <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                    Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+                    @ Quantum App 2024
                 </div>
             </div>
         </div>

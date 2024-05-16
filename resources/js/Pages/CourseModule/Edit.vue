@@ -1,12 +1,11 @@
 <template>
     <AuthenticatedLayout>
         <template #header>
-          <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Create Module</h2>
+          <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Edit Module</h2>
         </template>
         <template>
           <div>
             <div v-if="flash" class="alert alert-success" role="alert">
-              {{ flash }}
             </div>
           </div>
         </template>
@@ -34,16 +33,29 @@
     </AuthenticatedLayout>
   </template>
   <script setup>
+  import { onMounted } from "vue";
   import { usePage, useForm } from "@inertiajs/vue3";
 
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   const props = defineProps({
-    learning_module: {
+    module: {
       type: Object,
       default: null,
     },
+    isUpdating: {
+      type: Boolean,
+      default: false,
+    },
     flash: String,
     course_id: String,
+  });
+
+  onMounted(() => {
+    form.id = props.module.id;
+    form.course_id = props.module.course_id;
+    form.name = props.module.name;
+    form.content = props.module.content;
+    form.step = props.module.step;
   });
 
   const course_id =  Number(props.course_id); 
@@ -57,7 +69,7 @@
   });
 
   const submit = () => {
-    form.post("/api/v1/modules-create");
+    form.post("/api/v1/modules-update");
   };
   </script>
   
