@@ -3,18 +3,11 @@
         <template #header>
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Learning Subject per Student Year</h2>
         </template>
-          <div class="py-4 text-right">
+          <div class="text-right pt-4 pr-4">
             <Link class="border-b inline-flex items-center px-6 py-4 bg-gray-800 text-white font-bold rounded-lg shadow hover:bg-gray-200 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="learning-courses/create">Add New Subject</Link>
           </div>
-          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <template >
-              <div class="alert alert-success">
-                {{ message }}
-              </div>
-            </template>
-          </div>
-          <div class="flex flex-wrap mt-4 px-12">
-            <div class="w-full xl:w-12/12 mb-12 xl:mb-0">
+          <div class="flex flex-wrap py-8">
+            <div class="w-full px-4 xl:w-12/12 mb-12 xl:mb-0">
                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div class="dark:bg-white text-black dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <table class="border-separate border border-slate-500 w-full">

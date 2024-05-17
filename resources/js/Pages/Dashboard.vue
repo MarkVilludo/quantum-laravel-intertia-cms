@@ -17,7 +17,7 @@ const props = defineProps({
         </template>
 
         <div class="py-12">
-            <div class="px-4 md:px-10 mx-auto w-full">
+            <div class="px-4 mx-auto w-full">
                 <div>
                     <div class="flex flex-wrap">
                     <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
@@ -91,7 +91,7 @@ const props = defineProps({
                         <div class="flex-auto p-4">
                             <div class="flex flex-wrap">
                             <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                                <h5 class="text-blueGray-400 uppercase font-bold text-xs">PERFORMANCE</h5>
+                                <h5 class="text-blueGray-400 uppercase font-bold text-xs">Learning Modules</h5>
                                 <span class="font-semibold text-xl text-blueGray-700">49,65%</span>
                             </div>
                             <div class="relative w-auto pl-4 flex-initial">
@@ -112,7 +112,7 @@ const props = defineProps({
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap mt-4 px-12">
+        <div class="flex flex-wrap mt-4 px-4">
             <div class="w-full xl:w-8/12 mb-12 xl:mb-0">
                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                 <div class="rounded-t mb-0 px-4 py-3 border-0">
@@ -181,7 +181,7 @@ const props = defineProps({
                 </div>
                 </div>
             </div>
-            <div class="w-full xl:w-4/12 px-4">
+            <div class="w-full xl:w-4/12 lg:px-4 md:px-4">
                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                 <div class="rounded-t mb-0 px-4 py-3 border-0">
                     <div class="flex flex-wrap items-center">
