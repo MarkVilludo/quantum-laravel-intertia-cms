@@ -153,6 +153,18 @@ const showingNavigationDropdown = ref(false);
             <main>
                 <slot />
             </main>
+
+
+            <!-- footer -->
+            <footer class="block py-4">
+            <div class="container mx-auto px-4">
+                <hr class="mb-4 border-b-1 border-blueGray-200">
+                <div class="flex flex-wrap items-center justify-center text-center">
+                    <div class="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left"> Copyright © 2024 <a href="https://www.markvilludo.xyz" class="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"> Quantum App </a>
+                    </div>
+                </div>
+            </div>
+            </footer>
         </div>
     </div>
 </template>
