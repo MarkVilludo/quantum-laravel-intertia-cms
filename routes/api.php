@@ -47,6 +47,4 @@ Route::prefix('v1')->group(function () {
     Route::get('categories', [CourseCategoryController::class, 'index']);
     Route::post('modules-create', [CourseCategoryController::class, 'store']);
 });
-
-
 // Route::get('/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');

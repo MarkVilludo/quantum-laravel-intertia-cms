@@ -63,9 +63,10 @@
                             <td class="gap">
                      
                                 <i class="fas fa-edit"></i>
-                                <button @click="handleEdit(module.id)"  class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button @click="redirectToEdit(module.id)"  class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                   Editx
                                 </button>
+                                
                               <button @click="handleDeleteConfirmation(module.id)" class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 <i class="fas fa-trash-alt"></i>
                                 Delete
@@ -79,11 +80,19 @@
           </div>
     </AuthenticatedLayout>
   </template>
+  <script>
+  export default {
+    methods: {
+      redirectToEdit(moduleId) {
+        window.location.href = `http://127.0.0.1:8003/learning-modules/${moduleId}/edit`;
+      }
+    }
+  }
+  </script>
   <script setup>
   import { onMounted } from "vue";
-  import {useForm, usePage} from "@inertiajs/vue3";
+  import { Link, useForm, usePage } from '@inertiajs/vue3';
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-  import { Link } from "@inertiajs/vue3";
   
   const props = defineProps({
     learning_course: {

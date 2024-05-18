@@ -69,7 +69,7 @@
   });
 
   const submit = () => {
-    form.post("/api/v1/modules-update");
+    form.put(`/modules-update/${props.module.id}`);
   };
   </script>
   

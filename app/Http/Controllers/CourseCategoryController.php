@@ -66,6 +66,14 @@ class CourseCategoryController extends Controller
         );
     }
 
+    public function update(Request $request, $id)
+    {
+        return 'test';
+        $learningCourse = LearningCourseModule::find($id);
+        $learningCourse->update($request->all());
+        return redirect()->route('learning.courses');
+    }
+
     public function destroy($courseId, $moduleId)
     {
         $module = LearningCourseModule::find($moduleId);

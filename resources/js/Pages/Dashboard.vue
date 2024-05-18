@@ -281,3 +281,17 @@ const props = defineProps({
         </div>
     </AuthenticatedLayout>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      msg: 'Hello World!'
+    }
+  },
+  methods: {
+    test() {
+      alert('test')
+    }
+  }
+}
+</script>
