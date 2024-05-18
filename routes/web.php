@@ -48,19 +48,13 @@ Route::resource('learning-modules', CourseCategoryController::class)->middleware
     'create' => 'learning.modules.create',
     'store' => 'learning.modules.store',
     'edit' => 'learning.modules.edit',
-    'update' => 'learning.modules.update',
     'destroy' => 'learning.modules.destroy',
 ]);
 
-// Route::group(['prefix' => 'learning-modules'], function () {
-//     Route::get('/', [CourseCategoryController::class, 'index'])->name('learning-modules.index');
-//     Route::post('/', [CourseCategoryController::class, 'store'])->name('learning-modules.store');
-//     Route::put('/{moduleId}', [CourseCategoryController::class, 'update'])->name('learning-module.update');
-// })->middleware(['auth', 'verified']);
-
-Route::post('modules-update/{$id}', [CourseCategoryController::class, 'update']);
+// Route::post('modules-update/{$id}', [CourseCategoryController::class, 'update']);
 Route::get('learning-courses/{id}/learning-modules/{moduleId}/edit', [CourseCategoryController::class, 'edit'])->name('editmodule');
 Route::get('learning-courses/{courseId}/modules/create', [CourseCategoryController::class, 'create'])->name('learning-modules.create');
+Route::post('learning-modules/{courseId}/update', [CourseCategoryController::class, 'update'])->name('learning-modules.update');
 Route::delete('learning-courses/{courseId}/learning-modules/{moduleId}', [CourseCategoryController::class, 'destroy'])->name('learning-modules.destroy');
 
 Route::middleware('auth')->group(function () {

@@ -3,13 +3,14 @@
         <template #header>
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Edit Module</h2>
         </template>
-        <template>
-          <div>
-            <div v-if="flash" class="alert alert-success" role="alert">
+        <div class="py-12 mx-2">
+          <div v-if="success">
+            
+            <div class="bg-green-500 text-white px-4 py-3 rounded-full text-sm font-medium">
+              <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 0 0-3.54.86l-2 2a1 1 0 0 0 1.414 1.414L10 8.586l3.586-3.586a1 1 0 0 0 1.414-1.414zM10 10a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" clip-rule="evenodd"></path></svg>
+              <span>{{  message }}</span>
             </div>
           </div>
-        </template>
-        <div class="py-12 mx-2">
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 dark:text-white dark:bg-white text-black dark:bg-gray-800 py-8 dark:text-black">
             <form @submit.prevent="submit">
               <div class="mb-3">
@@ -48,6 +49,8 @@
     },
     flash: String,
     course_id: String,
+    message: String,
+    success: Boolean,
   });
 
   onMounted(() => {
@@ -69,7 +72,7 @@
   });
 
   const submit = () => {
-    form.put(`/modules-update/${props.module.id}`);
+    form.put(`/learning-modules/${props.module.id}`);
   };
   </script>
   

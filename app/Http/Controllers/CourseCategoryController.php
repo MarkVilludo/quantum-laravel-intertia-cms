@@ -68,10 +68,24 @@ class CourseCategoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        return 'test';
-        $learningCourse = LearningCourseModule::find($id);
-        $learningCourse->update($request->all());
-        return redirect()->route('learning.courses');
+        try {
+            $learningModule = LearningCourseModule::find($id);
+            $learningModule->update($request->all());
+            $message = 'Successfully updated record.';
+            $status = true;
+        } catch (\Throwable $th) {
+            $message = $th;
+            $status = false;
+        }
+        return Inertia::render('CourseModule/Edit', 
+            [
+                'module' => $learningModule,
+                'isUpdating' => true,
+                'message' => $message,
+                'success' => $status,
+            ]
+        );
+        
     }
 
     public function destroy($courseId, $moduleId)

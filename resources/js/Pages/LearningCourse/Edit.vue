@@ -61,12 +61,10 @@
                               {{ module.step }}
                             </td>
                             <td class="gap">
-                     
-                                <i class="fas fa-edit"></i>
-                                <button @click="redirectToEdit(module.id)"  class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                  Editx
-                                </button>
-                                
+                              <Link :href="`/learning-modules/${module.id}/edit`" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                  <i class="fas fa-edit mr-1"></i>
+                                  Edit
+                                </Link>
                               <button @click="handleDeleteConfirmation(module.id)" class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 <i class="fas fa-trash-alt"></i>
                                 Delete
@@ -80,15 +78,6 @@
           </div>
     </AuthenticatedLayout>
   </template>
-  <script>
-  export default {
-    methods: {
-      redirectToEdit(moduleId) {
-        window.location.href = `http://127.0.0.1:8003/learning-modules/${moduleId}/edit`;
-      }
-    }
-  }
-  </script>
   <script setup>
   import { onMounted } from "vue";
   import { Link, useForm, usePage } from '@inertiajs/vue3';
@@ -124,12 +113,6 @@
     form.title = props.learning_course.title;
     form.description = props.learning_course.description;
   });
-
-  const handleEdit = (id) => {
-    alert(id)
-    const page = usePage()
-    page.inertia.visit('/modules', id);
-  }
 
   const handleDeleteConfirmation = (id) => {
   if (confirm('Are you sure you want to delete this learning course?')) {
