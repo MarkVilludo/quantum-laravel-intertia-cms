@@ -8,19 +8,21 @@
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
         "@tailwindcss/forms": "^0.5.3",
+        "@types/quill": "^2.0.14",
         "@vitejs/plugin-vue": "^5.0.0",
-        "autoprefixer": "^10.4.12",
+        "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
-        "postcss": "^8.4.31",
-        "tailwindcss": "^3.2.1",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.3",
         "vite": "^5.0.0",
-        "vue": "^3.4.0"
+        "vue": "^3.4.27"
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^41.3.1",
         "@ckeditor/ckeditor5-vue": "^5.1.0",
-        "admin-lte": "^3.2.0",
-        "vue3-quill": "^0.3.1"
+        "@tinymce/tinymce-vue": "^5.1.1",
+        "@vueup/vue-quill": "^1.2.0",
+        "admin-lte": "^3.2.0"
     }
 }

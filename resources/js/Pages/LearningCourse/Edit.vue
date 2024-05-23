@@ -39,7 +39,7 @@
                                 Module Name
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Content
+                                Description
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Step
@@ -55,20 +55,26 @@
                                {{ module.name }}
                             </th>
                             <td class="px-6 py-4">
-                              {{ module.content }}
+                              {{ module.description }}
                             </td>
                             <td class="px-6 py-4">
                               {{ module.step }}
                             </td>
-                            <td class="gap">
-                              <Link :href="`/learning-modules/${module.id}/edit`" class="items-center py-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                  <i class="fas fa-edit mr-1"></i>
-                                  Edit
-                                </Link>
-                              <button @click="handleDeleteConfirmation(module.id)" class="items-center p-1 mr-1 w-24 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                <i class="fas fa-trash-alt"></i>
-                                Delete
-                              </button>
+                            <td>
+                              <div class="flex gap-2">
+                                <div class="flex-none">
+                                  <Link :href="`/learning-modules/${module.id}/edit`">
+                                    <button @click="handleDeleteConfirmation(module.id)" class="items-center w-24 h-8 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                      Edit
+                                    </button>
+                                  </Link>
+                                </div>
+                                <div class="flex-none">
+                                  <button @click="handleDeleteConfirmation(module.id)" class="items-center w-24 h-8 text-sm font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    Delete
+                                  </button>
+                                </div>
+                              </div>
                             </td>
                         </tr>
                     </tbody>
@@ -104,7 +110,6 @@
     description: "",
   });
 
-  
   const submit = () => (props.isUpdating ? updateLearningCourse() : addLearningCourse());
   const addLearningCourse = () => form.post("/learning-courses");
   const updateLearningCourse = () => form.put(`/learning-courses/${props.learning_course.id}`);

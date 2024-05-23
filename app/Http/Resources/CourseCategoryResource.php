@@ -19,7 +19,7 @@ class CourseCategoryResource extends JsonResource
             "name" => $this->name,
             "course_id" => $this->course_id,
             "description" => $this->description,
-            "content" => $this->content?->content,
+            "content" => substr($this->content?->content, 0, 100),
             "activities" => $this->activities?->activities,
             "step" => $this->step,
         ];

@@ -19,7 +19,7 @@
               </div>
               <div class="mb-3">
                 <label for="content" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Content</label>
-                <textarea id="content" v-model="form.content" class="form-control h-56 block w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"></textarea>
+                <Editor api-key='oghexe64qzr3qq2ok0vnyz7s20xhkzspi8b1rlogu9oxdimz' v-model="form.content"/>
               </div>
               <div class="mb-3">
                 <label for="step" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Step</label>
@@ -31,11 +31,16 @@
             </form>
           </div>
         </div>
+        
+
     </AuthenticatedLayout>
   </template>
+
+  
   <script setup>
   import { onMounted } from "vue";
   import { usePage, useForm } from "@inertiajs/vue3";
+  import Editor from '@tinymce/tinymce-vue'
 
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   const props = defineProps({
@@ -60,9 +65,7 @@
     form.content = props.module.content;
     form.step = props.module.step;
   });
-
   const course_id =  Number(props.course_id); 
-  
   const form = useForm({
     name: "",
     description: "",
@@ -75,4 +78,14 @@
     form.put(`/learning-modules/${props.module.id}`);
   };
   </script>
+  <style scoped>
+    @media (min-width: 1024px) {
+      #sample {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        width: 1000px;
+      }
+    }
+  </style>
   
