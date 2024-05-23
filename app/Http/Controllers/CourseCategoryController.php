@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LearningCourseModule;
-use App\Http\Resources\{CategoryIndexResource, CourseCategoryResource};
+use App\Http\Resources\CategoryIndexResource;
 use Inertia\Inertia;
 
 class CourseCategoryController extends Controller
@@ -60,7 +60,7 @@ class CourseCategoryController extends Controller
         $learningModule = LearningCourseModule::where('id', $moduleId)->first();
         return Inertia::render('CourseModule/Edit', 
             [
-                'module' => new CourseCategoryResource($learningModule),
+                'module' => $learningModule,
                 'isUpdating' => true
             ]
         );

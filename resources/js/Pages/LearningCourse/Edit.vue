@@ -64,7 +64,7 @@
                               <div class="flex gap-2">
                                 <div class="flex-none">
                                   <Link :href="`/learning-modules/${module.id}/edit`">
-                                    <button @click="handleDeleteConfirmation(module.id)" class="items-center w-24 h-8 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                    <button class="items-center w-24 h-8 text-sm font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                       Edit
                                     </button>
                                   </Link>

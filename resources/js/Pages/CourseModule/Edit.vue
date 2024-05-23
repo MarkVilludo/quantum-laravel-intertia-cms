@@ -4,11 +4,12 @@
           <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Edit Module</h2>
         </template>
         <div class="py-12 mx-2">
-          <div v-if="success">
-            
-            <div class="bg-green-500 text-white px-4 py-3 rounded-full text-sm font-medium">
-              <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 0 0-3.54.86l-2 2a1 1 0 0 0 1.414 1.414L10 8.586l3.586-3.586a1 1 0 0 0 1.414-1.414zM10 10a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" clip-rule="evenodd"></path></svg>
-              <span>{{  message }}</span>
+          <div v-if="success" class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+              <div class="flex bg-green-500 text-white px-4 py-3 rounded-xl text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                <span class="pt-1 pl-1">{{  message }}</span>
             </div>
           </div>
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 dark:text-white dark:bg-white text-black dark:bg-gray-800 py-8 dark:text-black">
@@ -16,6 +17,10 @@
               <div class="mb-3">
                 <label for="name" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Name</label>
                 <input type="text" id="name" v-model="form.name" class="form-control block w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Description</label>
+                <input type="text" id="description" v-model="form.description" class="form-control block w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
               </div>
               <div class="mb-3">
                 <label for="content" class="form-label block mb-2 text-sm font-medium dark:text-gray-200">Content</label>
@@ -61,6 +66,7 @@
   onMounted(() => {
     form.id = props.module.id;
     form.course_id = props.module.course_id;
+    form.description = props.module.description;
     form.name = props.module.name;
     form.content = props.module.content;
     form.step = props.module.step;
