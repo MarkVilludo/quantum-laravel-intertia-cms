@@ -66,6 +66,13 @@ class CourseCategoryController extends Controller
         );
     }
 
+    public function show($id)
+    {
+        $data['module'] = $this->category->find($id);
+        return view('modules.show', $data);
+        // return response()->json($data, 200);
+    }
+
     public function update(Request $request, $id)
     {
         try {
