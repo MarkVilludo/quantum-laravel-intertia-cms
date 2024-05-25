@@ -33,7 +33,6 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
 Route::resource('learning-courses', LearningCourseController::class)->middleware(['auth', 'verified'])->names([
     'index' => 'learning.courses',
     'create' => 'learning.courses.create',

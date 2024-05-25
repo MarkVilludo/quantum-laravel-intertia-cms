@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{LearningCourseQuestionController, LearningCourseController};
 use App\Http\Controllers\{LearningCourseCategoryContentController, CourseCategoryActivityController};
-use App\Http\Controllers\{CourseCategoryController};
+use App\Http\Controllers\{CourseCategoryController, ReadModuleController};
 
 use App\Http\Controllers\AuthController;
 
@@ -28,14 +28,12 @@ Route::prefix('v1')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
     Route::get('profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
-
     Route::prefix('questions')->group(function () {
         Route::get('/', [LearningCourseQuestionController::class, 'index']);
         Route::post('/', [LearningCourseQuestionController::class, 'store']);
         Route::post('/{id}', [LearningCourseQuestionController::class, 'update']);
         Route::delete('/{id}', [LearningCourseQuestionController::class, 'destroy']);
     });
-
     Route::get('courses', [LearningCourseController::class, 'list']);
     Route::get('courses/{id}', [LearningCourseController::class, 'show']);
     Route::delete('courses/{id}', [LearningCourseController::class, 'show']);
@@ -46,5 +44,8 @@ Route::prefix('v1')->group(function () {
     });
     Route::get('categories', [CourseCategoryController::class, 'index']);
     Route::post('modules-create', [CourseCategoryController::class, 'store']);
+
+    //save progress each module per user
+    Route::post('read-modules', [ReadModuleController::class, 'readModule']);
 });
-// Route::get('/profile', [AuthController::class, 'me'])->middleware('auth:sanctum');
+
