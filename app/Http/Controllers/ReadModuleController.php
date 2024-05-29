@@ -37,4 +37,9 @@ class ReadModuleController extends Controller
        
         return response()->json($data, 200);
     }
+
+    public function readingProgress()
+    {
+        //user_id, level (difficulty), 
+    }
 }
